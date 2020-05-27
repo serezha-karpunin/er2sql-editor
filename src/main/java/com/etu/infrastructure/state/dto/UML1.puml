@@ -1,0 +1,59 @@
+@startuml
+class ERModelState {
+entities : ERModelEntity[0..*]
+relations : ERModelRelation[0..*]
+}
+
+class ERModelEntity {
+id : String
+name : String
+attributes : ERModelEntityAttribute[0..*]
+layoutX : double
+layoutY : double
+selected : boolean
+}
+
+class ERModelEntityAttribute {
+id : String
+key : boolean
+name : String
+}
+
+class ERModelRelation {
+id : String
+name : String
+relationType: ERModelRelationType
+relationSides : ERModelRelationSide[0..*]
+}
+
+class ERModelRelationSide {
+id : String
+type : ERModelRelationSideType
+entity : ERModelEntity
+mandatory : boolean
+}
+
+ERModelState *-- ERModelEntity
+ERModelEntity *-- ERModelEntityAttribute
+ERModelState *-- ERModelRelation
+ERModelRelation *-- ERModelRelationSide
+ERModelRelationSide -- ERModelEntity
+
+enum ERModelRelationType {
+ONE_TO_ONE
+ONE_TO_MANY
+MANY_TO_MANY
+DEPENDS_ON
+CATEGORY
+}
+
+enum ERModelRelationSideType {
+    ONE
+    MANY
+    MAIN
+    DEPENDENT
+    GENERALIZED
+    SPECIALIZED
+}
+
+@enduml

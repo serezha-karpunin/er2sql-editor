@@ -1,0 +1,16 @@
+.actions-wrapper {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #484848;
+    -fx-padding: 10;
+}
+
+.button.graphic{
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-margin:0;
+    -fx-padding: 0;
+}
+
+.button.graphic:focused {
+    -fx-border-color: transparent;
+}

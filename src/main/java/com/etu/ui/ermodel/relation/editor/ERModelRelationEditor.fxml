@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<AnchorPane minHeight="300" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="ermRelationEditorViewRootAnchorPane"
+            fx:controller="com.etu.ui.ermodel.relation.editor.ERModelRelationEditorView">
+    <VBox fx:id="ermRelationEditorViewRootVBox" spacing="20" style="-fx-padding: 10;">
+        <VBox spacing="10">
+            <HBox spacing="10">
+                <Label text="Название связи"/>
+                <TextField fx:id="relationNameTextField"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Тип связи: "/>
+                <Label fx:id="relationTypeLabel"/>
+            </HBox>
+            <TableView fx:id="relationSideTableView">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="Название сущности" fx:id="relationSideEntityTableColumn"/>
+                    <TableColumn prefWidth="75.0" text="Обязательный"
+                                 fx:id="relationSideMandatoryTableColumn"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <Region VBox.vgrow="ALWAYS"/>
+        <HBox alignment="BASELINE_CENTER" spacing="10">
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" fx:id="saveButton"
+                    onAction="#save" text="%erm.editor.relation.save"/>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" fx:id="removeButton"
+                    onAction="#remove" text="%erm.editor.relation.remove"/>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" fx:id="cancelButton"
+                    onAction="#cancel" text="%erm.editor.cancel"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

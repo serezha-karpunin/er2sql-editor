@@ -1,0 +1,66 @@
+@startuml
+
+class TransformationState {
+    objects : TransformationObject[0..*]
+    links : TransformationLink[0..*]
+}
+
+TransformationState *-- TransformationObject
+TransformationState *-- TransformationLink
+
+class ERModelEntity {
+    id : String
+    name : String
+    attributes : ERModelEntityAttribute[0..*]
+    layoutX : double
+    layoutY : double
+    selected : boolean
+}
+
+class TransformationObject {
+    id : String
+    name : String
+    sourceEntities : ERModelEntity[1..*]
+    attributes : TransformationObjectAttribute[0..*]
+}
+
+TransformationObject -- ERModelEntity
+
+
+class TransformationObjectAttribute {
+    id : String
+    key : boolean
+    name : String
+    sourceAttribute : TransformationObjectAttribute
+}
+
+TransformationObject *-- TransformationObjectAttribute
+TransformationObjectAttribute -- TransformationObjectAttribute
+
+class TransformationLink {
+id : String
+linkType : RModelRelationType
+linkSideFrom : TransformationLinkSide
+linkSideTo : TransformationLinkSide
+}
+
+class TransformationLinkSide {
+ id : String
+ object : TransformationObject
+ type : RModelRelationSideType
+}
+
+TransformationLink *-- TransformationLinkSide
+TransformationObject -- TransformationLinkSide
+
+enum RModelRelationType {
+    ONE_TO_ONE
+    ONE_TO_MANY
+}
+
+enum RModelRelationSideType {
+    ONE
+    MANY
+}
+
+@enduml

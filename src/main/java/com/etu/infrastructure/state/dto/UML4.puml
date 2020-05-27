@@ -1,0 +1,40 @@
+@startuml
+class SqlGenerationState {
+    tables: SqlGenerationTable[0..*]
+}
+
+SqlGenerationState *-- SqlGenerationTable
+
+class SqlGenerationTable {
+    id : String
+    name : String
+    columns : SqlGenerationTableColumn[0..*]
+    indexes : SqlGenerationTableIndex[0..*]
+    foreignKeys : SqlGenerationTableForeignKey[0..*]
+}
+
+SqlGenerationTable *-- SqlGenerationTableColumn
+SqlGenerationTableIndex *-- SqlGenerationTableColumn
+SqlGenerationTableForeignKey *-- SqlGenerationTableColumn
+SqlGenerationTable *-- SqlGenerationTableIndex
+SqlGenerationTable *-- SqlGenerationTableForeignKey
+SqlGenerationTableForeignKey -- SqlGenerationTable
+
+class SqlGenerationTableColumn {
+    isPrimary : boolean
+    name : String
+    dataType : DBAttributeDataType
+}
+
+class SqlGenerationTableIndex {
+    name : String
+    columns : SqlGenerationTableColumn[1..*]
+}
+
+class SqlGenerationTableForeignKey {
+    name : String
+    linkedTable : SqlGenerationTable
+    linkedColumns : Map<SqlGenerationTableColumn, SqlGenerationTableColumn>
+}
+
+@enduml

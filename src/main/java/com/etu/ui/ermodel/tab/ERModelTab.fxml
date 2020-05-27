@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.etu.ui.ermodel.tab.ERModelTabView"
+            fx:id="rootAnchorPane"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+        <HBox styleClass="actions-wrapper">
+            <HBox id="createActionsHBox" spacing="5">
+                <Button fx:id="addEntityButton" onAction="#startAddEntityWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddNodeIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addOneToOneRelationButton" onAction="#startAddOneToOneRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddOneToOneLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addOneToManyRelationButton" onAction="#startAddOneToManyRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddOneToManyLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addManyToManyRelationButton" onAction="#startAddManyToManyRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddManyToManyLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addDependencyRelationButton" onAction="#startAddDependencyRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddDependencyLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addCategoryRelationButton" onAction="#startAddCategoryRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddCategoryLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="finishRelationCreationButton" onAction="#finishRelationCreation"
+                        mnemonicParsing="false" styleClass="graphic" visible="false">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/FinishLinkCreationIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="cancelRelationCreationButton" onAction="#cancelRelationCreation"
+                        mnemonicParsing="false" styleClass="graphic" visible="false">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/CancelLinkCreationIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="10">
+                <Button fx:id="toRelationModelButton" onAction="#startTransformationWorkflow"
+                        text="%erm.to.rm.text"
+                        mnemonicParsing="false"/>
+            </HBox>
+        </HBox>
+        <AnchorPane fx:id="canvasAnchorPane"/>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@ermtab.css"/>
+    </stylesheets>
+</AnchorPane>

@@ -1,0 +1,8 @@
+.start-button{
+    -fx-cursor: hand;
+    -fx-fill: #9ecaed;
+}
+
+.start-title {
+    -fx-font-size: 32;
+}

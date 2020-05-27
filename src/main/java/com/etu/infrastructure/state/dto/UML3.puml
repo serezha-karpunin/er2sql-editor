@@ -1,0 +1,72 @@
+@startuml
+class RModelState {
+relations : RModelRelation[0..*]
+links : RModelLink[0..*]
+}
+
+class RModelRelation {
+id : String
+name : String
+attributes : RModelRelationAttribute[0..*]
+layoutX : double
+layoutY : double
+selected : boolean
+}
+
+class RModelRelationAttribute {
+id : String
+key : boolean
+name : String
+type : RModelRelationAttributeDataType
+}
+
+class RModelLink {
+id : String
+name : String
+type: RModelLinkType
+linkSideFrom : RModelLinkSide
+linkSideTo : RModelLinkSide
+}
+
+class RModelLinkSide {
+id : String
+type : RModelLinkSideType
+relation : RModelRelation
+}
+
+RModelState *-- RModelRelation
+RModelRelation *-- RModelRelationAttribute
+RModelState *-- RModelLink
+RModelLink *-- RModelLinkSide
+RModelLinkSide -- RModelRelation
+
+enum RModelRelationAttributeDataType {
+    BIT
+    TINYINT
+    SMALLINT
+    INT
+    BIGINT
+    DECIMAL
+    NUMERIC
+    FLOAT
+    REAL
+    DATE
+    TIME
+    DATETIME
+    CHAR
+    VARCHAR
+    OLE
+    BLOB
+}
+
+enum RModelLinkType {
+    ONE_TO_ONE
+    ONE_TO_MANY
+}
+
+enum RModelLinkSideType {
+    ONE
+    MANY
+}
+
+@enduml

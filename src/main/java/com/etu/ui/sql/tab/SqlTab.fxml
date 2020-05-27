@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.etu.ui.sql.tab.SqlTabView"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rootAnchorPane"
+>
+    <VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+        <HBox id="actionsHBox" style="-fx-border-width: 0 0 1 0; -fx-border-color: #484848; -fx-padding: 10"
+              spacing="10" alignment="BASELINE_LEFT">
+            <Label text="%sql.tab.target.dbms.label"/>
+            <ComboBox fx:id="targetDbmsComboBox"/>
+        </HBox>
+        <TextArea fx:id="sqlTextArea" wrapText="true" prefHeight="500" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+</AnchorPane>

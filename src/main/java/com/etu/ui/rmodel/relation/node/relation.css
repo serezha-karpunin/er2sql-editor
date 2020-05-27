@@ -1,0 +1,30 @@
+.node {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+}
+
+.node.selected-to-edit{
+    -fx-border-color: #29b6f2;
+}
+
+.node.selected-to-create-link {
+    -fx-border-color: red;
+}
+
+.node-name {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 5;
+}
+
+.node .iconButton {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-fill: black;
+    -fx-font-size: 12;
+}
+
+.node .attribute-wrapper {
+    -fx-padding: 5;
+}

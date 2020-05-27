@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.etu.ui.rmodel.tab.RModelTabView"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rootAnchorPane"
+>
+    <VBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0">
+        <HBox styleClass="actions-wrapper">
+            <HBox id="createActionsHBox" spacing="5">
+                <Button fx:id="addRelationButton" onAction="#startAddRelationWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddNodeIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="addLinkButton" onAction="#startAddLinkWorkflow"
+                        mnemonicParsing="false" styleClass="graphic">
+                    <graphic>
+                        <ImageView>
+                            <Image url="icon/AddOneToOneLinkIcon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+
+            <Button fx:id="finishLinkCreationButton" onAction="#finishLinkCreation"
+                    mnemonicParsing="false" styleClass="graphic" visible="false">
+                <graphic>
+                    <ImageView>
+                        <Image url="icon/FinishLinkCreationIcon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button fx:id="cancelLinkCreationButton" onAction="#cancelLinkCreation"
+                    mnemonicParsing="false" styleClass="graphic" visible="false">
+                <graphic>
+                    <ImageView>
+                        <Image url="icon/CancelLinkCreationIcon.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="10">
+                <Button onAction="#startSqlGenerationWorkflow"
+                        mnemonicParsing="false"
+                        text="Перейти к SQL"/>
+            </HBox>
+        </HBox>
+        <AnchorPane fx:id="canvasAnchorPane"/>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@rmtab.css"/>
+    </stylesheets>
+</AnchorPane>

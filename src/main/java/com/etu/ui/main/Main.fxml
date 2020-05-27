@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.etu.ui.main.MainView"
+            fx:id="mainAnchorPane"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <VBox fx:id="mainVBox">
+        <MenuBar fx:id="menuBar">
+            <Menu text="%menu.file">
+                <MenuItem onAction="#addNewProject" text="%menu.file.new"/>
+                <MenuItem onAction="#loadProject" text="%menu.file.load"/>
+                <MenuItem onAction="#saveProject" text="%menu.file.save"/>
+                <MenuItem onAction="#saveProjectAs" text="%menu.file.save.as"/>
+                <MenuItem onAction="#closeProject" text="%menu.file.close"/>
+            </Menu>
+            <Menu text="%menu.export">
+                <MenuItem onAction="#exportErModel" text="%menu.file.export.erm"/>
+                <MenuItem onAction="#exportRelationalModel" text="%menu.file.export.rm"/>
+                <MenuItem onAction="#exportGeneratedSql" text="%menu.file.export.sql"/>
+            </Menu>
+            <Menu text="%menu.help"/>
+        </MenuBar>
+        <VBox fx:id="startVBox" VBox.vgrow="ALWAYS" alignment="CENTER">
+            <HBox alignment="center">
+                <VBox spacing="20">
+                    <Label styleClass="start-title" text="%start.title"/>
+                    <VBox spacing="10">
+                        <Button fx:id="addNewProjectButton" onMouseClicked="#addNewProject" styleClass="start-button"
+                                text="%start.add.new.project.clickable.text"/>
+                        <Button fx:id="loadProjectButton" onMouseClicked="#loadProject" styleClass="start-button"
+                                text="%start.load.project.clickable.text"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </VBox>
+        <TabPane fx:id="mainTabPane" VBox.vgrow="ALWAYS">
+            <Tab fx:id="ermTab" closable="false" text="%erm.tab.text"/>
+            <Tab fx:id="rmTab" closable="false" text="%rm.tab.text"/>
+            <Tab fx:id="sqlTab" closable="false" text="%sql.tab.text"/>
+        </TabPane>
+    </VBox>
+    <stylesheets>
+        <URL value="@main.css"/>
+    </stylesheets>
+</AnchorPane>

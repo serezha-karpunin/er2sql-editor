@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rmRelationEditorViewRootAnchorPane"
+            fx:controller="com.etu.ui.rmodel.relation.editor.RModelRelationEditorView">
+    <VBox fx:id="rmRelationEditorViewRootVBox" spacing="20" style="-fx-padding: 10;">
+        <VBox spacing="10">
+            <Label text="Название отношения"/>
+            <TextField fx:id="relationNameTextField"/>
+        </VBox>
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="BASELINE_LEFT">
+                <Label text="Атрибуты отношения"/>
+                <Button mnemonicParsing="false" text="Добавить атрибут" onAction="#addAttribute"/>
+            </HBox>
+
+            <TableView fx:id="attributeTableView">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="Ключ" fx:id="attributeKeyTableColumn"/>
+                    <TableColumn prefWidth="75.0" text="Название" fx:id="attributeNameTableColumn"/>
+                    <TableColumn prefWidth="75.0" text="Тип" fx:id="attributeTypeTableColumn"/>
+                    <TableColumn prefWidth="75.0" text="Удалить" fx:id="attributeRemoveTableColumn"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <HBox alignment="BASELINE_CENTER" spacing="10">
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0"
+                    onAction="#confirm" text="%rm.editor.relation.save"/>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0"
+                    onAction="#cancel" text="%rm.editor.cancel"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
